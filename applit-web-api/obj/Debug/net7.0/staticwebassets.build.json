@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EuEgmfyDXlfqOC4rCZTBrryAzANTjj3iJnB+FpuMfqQ=",
+  "Source": "applit-web-api",
+  "BasePath": "_content/applit-web-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
