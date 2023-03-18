@@ -21,25 +21,10 @@ public class MyController : ControllerBase
         dockerClient = new DockerClientConfiguration(new Uri("npipe://./pipe/docker_engine")).CreateClient();
         dockerService = new DockerService("python", dockerClient);
     }
-    
-    [HttpGet]
-    public async Task<string?> GetRunningContainer()
-    {
-        
-         var containers = await dockerClient.Containers.ListContainersAsync(new ContainersListParameters { }); 
-            // var container1 = containers.FirstOrDefault(c => c.Image == "python");
-            // var container1 = containers.FirstOrDefault(c => c.Names.Contains($"/priceless_volhard"));
-            var container1 = containers.FirstOrDefault(c => c.State == "running" && c.Image == "python");
-            if (container1 != null)
-            {
-                System.Console.WriteLine( $"This is exe : {container1.ID} "); 
-                return container1.ID;
-            }
-            return null;
-    }
+   
 
      [HttpPost]
-        public async Task<IActionResult> RunPythonScript()
+        public async Task<IActionResult> RunPythonScript(string p)
         {
             string pythonCode = System.IO.File.ReadAllText(@"D:\od\intern\applit\applit-web-api\app\h.py");
  
@@ -69,7 +54,7 @@ public class MyController : ControllerBase
                 // // Create the command to execute the Python code inside the container
                 var execParams = new ContainerExecCreateParameters
                 {
-                    Cmd = new List<string> { "python", "-c", pythonCode },
+                    Cmd = new List<string> { "python", "-c", p }, 
                     AttachStdout = true,
                     AttachStderr = true,
                 };
@@ -105,7 +90,21 @@ public class MyController : ControllerBase
             
             return Ok("No Data");
         }
-    
+         
+    public async Task<string?> GetRunningContainer()
+    {
+        
+         var containers = await dockerClient.Containers.ListContainersAsync(new ContainersListParameters { }); 
+            // var container1 = containers.FirstOrDefault(c => c.Image == "python");
+            // var container1 = containers.FirstOrDefault(c => c.Names.Contains($"/priceless_volhard"));
+            var container1 = containers.FirstOrDefault(c => c.State == "running" && c.Image == "python");
+            if (container1 != null)
+            {
+                System.Console.WriteLine( $"This is exe : {container1.ID} "); 
+                return container1.ID;
+            }
+            return null;
+    }
 
 }
 
@@ -152,75 +151,6 @@ public async Task<MultiplexedStream> ContainerExecStartAsync(string containerId,
     }
 }
 
-//     public async Task<ContainerExecResponse> ExecCreateAsync(string containerId, ContainerExecCreateParameters parameters)
-//     {
-//         return await _dockerClient.Containers.ExecCreateAsync(containerId, parameters);
-//     }
-
-//     public async Task<ContainerExecInspectResponse> ExecInspectAsync(string execId)
-//     {
-//         return await _dockerClient.Containers.ExecInspectAsync(execId);
-//     }
-
-//     public async Task<Stream> ExecStartAsync(string execId, ContainerExecStartParameters parameters)
-//     {
-//         return await _dockerClient.Containers.ExecStartAsync(execId, parameters);
-//     }
-
-//     public async Task<string> CreateContainer(string containerName, List<string> cmd, string localDirectoryPath)
-//     {
-//         // Get the container create parameters
-//         var createContainerParameters = GetCreateContainerParameters(containerName, cmd, localDirectoryPath);
-
-//         // Create the container
-//         var response = await _dockerClient.Containers.CreateContainerAsync(createContainerParameters);
-
-//         // Start the container
-//         await _dockerClient.Containers.StartContainerAsync(response.ID, new ContainerStartParameters());
-
-//         return response.ID;
-//     }
-//     public async Task<Stream> ContainerExecAttachAsync(string containerId, string command, CancellationToken cancellationToken)
-// {
-    // var execCreateResponse = await _dockerClient.Exec.CreateContainerExecAsync(containerId, new ContainerExecCreateParameters()
-    // {
-    //     AttachStdout = true,
-    //     AttachStderr = true,
-    //     Cmd = new List<string>() { command }
-    // }, cancellationToken);
-
-//     if (execCreateResponse == null)
-//     {
-//         throw new Exception($"Failed to create exec for container {containerId}");
-//     }
-
-//     var attachParameters = new ContainerExecAttachParameters
-//     {
-//         Detach = false,
-//         Stream = true,
-//         Stdin = false,
-//         Stderr = true,
-//         Stdout = true
-//     };
-
-//     return await _dockerClient.Exec.StartContainerExecAsync(execCreateResponse.ID, attachParameters, cancellationToken);
-// }
-
-// public async Task<ContainerExecInspectResponse> ContainerExecInspectAsync(string containerId, string execId, CancellationToken cancellationToken)
-// {
-//     return await _dockerClient.Exec.InspectContainerExecAsync(execId, cancellationToken);
-// }
-
-// public async Task ContainerExecStartAsync(string execId, CancellationToken cancellationToken)
-// {
-//     await _dockerClient.Exec.StartContainerExecAsync(execId, new ContainerExecStartParameters(), cancellationToken);
-// }
-
-// public async Task<string> ContainerLogsAsync(string containerId, ContainerLogsParameters parameters, CancellationToken cancellationToken)
-// {
-//     var response = await _dockerClient.Containers.GetContainerLogsAsync(containerId, parameters, cancellationToken);
-//     return await response.ReadToEndAsync();
-// }
 
     private CreateContainerParameters GetCreateContainerParameters(string containerName, List<string> cmd, string localDirectoryPath)
     {
