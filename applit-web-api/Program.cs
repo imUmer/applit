@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
     public class Program
     {
@@ -8,20 +10,26 @@ using Microsoft.Extensions.Hosting;
         {
                         
             var builder = WebApplication.CreateBuilder(args);
+            // var providor = builder.Services.BuildServiceProvidor();
+            // var configurations = providor.GetRequiredService<IConfiguration>();
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            // builder.Services.AddSwaggerGen();
+            builder.Services.AddControllers(); 
+            // builder.Services.AddCors(options=>{
+            //     var frontendURL = configurations.GetValue<string>("fronend_url");
+ 
+            //     options.AddDefaultPolicy(builder =>{
+            //         builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader();
+            //     });
 
+            // });
             var app = builder.Build();
             
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
-            // app.UseAuthorization();
-
+            app.UseAuthorization();
+            app.UseCors();
             app.MapControllers();
 
             app.Run();

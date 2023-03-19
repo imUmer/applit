@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Editor from "./Editor";
+import Folder from "./Folder"; 
+import CodeEditor from "./Test";
 
-function App() {
+const folder = {
+  name: "root",
+  content: [
+    {
+      name: "folder1",
+      type: "folder",
+      content: [
+        {
+          name: "file1.txt",
+          type: "file",
+        },
+        {
+          name: "folder2",
+          type: "folder",
+          content: [
+            {
+              name: "file2.txt",
+              type: "file",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "file3.txt",
+      type: "file",
+    },
+  ],
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Editor /> 
+      {/* <CodeEditor /> */}
+      {/* <Folder folder={folder} /> */}
     </div>
   );
-}
+};
 
 export default App;
+

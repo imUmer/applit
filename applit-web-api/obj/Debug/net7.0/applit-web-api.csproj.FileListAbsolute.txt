@@ -33,3 +33,33 @@ D:\internship\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.genruntimeco
 D:\internship\applit\applit-web-api\obj\Debug\net7.0\ref\applit-web-api.dll
 D:\internship\applit\applit-web-api\bin\Debug\net7.0\Docker.DotNet.dll
 D:\internship\applit\applit-web-api\bin\Debug\net7.0\Newtonsoft.Json.dll
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\appsettings.Development.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\appsettings.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\applit-web-api.exe
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\applit-web-api.deps.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\applit-web-api.runtimeconfig.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\applit-web-api.dll
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\applit-web-api.pdb
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\Docker.DotNet.dll
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\Newtonsoft.Json.dll
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.csproj.AssemblyReference.cache
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.GeneratedMSBuildEditorConfig.editorconfig
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.AssemblyInfoInputs.cache
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.AssemblyInfo.cs
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.csproj.CoreCompileInputs.cache
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.MvcApplicationPartsAssemblyInfo.cache
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets\msbuild.applit-web-api.Microsoft.AspNetCore.StaticWebAssets.props
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets\msbuild.build.applit-web-api.props
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.applit-web-api.props
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.applit-web-api.props
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets.pack.json
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets.build.json
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\staticwebassets.development.json
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\scopedcss\bundle\applit-web-api.styles.css
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.csproj.CopyComplete
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.dll
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\refint\applit-web-api.dll
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.pdb
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.genruntimeconfig.cache
+E:\umer\My Projects\applit\applit-web-api\obj\Debug\net7.0\ref\applit-web-api.dll
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\Microsoft.OpenApi.dll

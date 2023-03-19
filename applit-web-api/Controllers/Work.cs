@@ -26,7 +26,7 @@ public class MyController : ControllerBase
      [HttpPost]
         public async Task<IActionResult> RunPythonScript(string p)
         {
-            string pythonCode = System.IO.File.ReadAllText(@"D:\od\intern\applit\applit-web-api\app\h.py");
+            //string pythonCode = System.IO.File.ReadAllText(@"D:\od\intern\applit\applit-web-api\app\h.py");
  
 
             // Set up the parameters for the container
@@ -64,7 +64,7 @@ public class MyController : ControllerBase
                 {
                     AttachStderr = true,
                     AttachStdout = true,
-                    Cmd = new List<string> { "python", "-c", pythonCode },
+                    Cmd = new List<string> { "python", "-c", p },
                     Tty = true,
                 };
 
@@ -79,13 +79,21 @@ public class MyController : ControllerBase
                 System.Console.WriteLine( $"This is exe : {container}");
                 System.Console.WriteLine( $"This is exe : {exec}");
                 var st = await s.ReadOutputToEndAsync(CancellationToken.None);
-
+                if(st.stderr != "")
+                {
+                    return Ok(st.stderr);
+                }
+                else if (st.stdout != "")
+                    return Ok(st.stdout);
+                else{
+                    return Ok("Nothing");
+                }
                 // // Read any output from the container logs
                 // var logs = await dockerService.GetContainerLogs(container); 
                 // var reader = new StreamReader(logs);
                 // var containerOutput = reader.ReadToEnd();    
                 // System.Console.WriteLine( $"This is st : {containerOutput}");
-                return Ok(st.stdout);
+                
             }
             
             return Ok("No Data");
