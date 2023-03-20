@@ -12,9 +12,17 @@ using Microsoft.OpenApi.Models;
             var builder = WebApplication.CreateBuilder(args);
             // var providor = builder.Services.BuildServiceProvidor();
             // var configurations = providor.GetRequiredService<IConfiguration>();
-
+            var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
             // Add services to the container.
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                policy  =>
+                                {
+                                    policy.WithOrigins("http://localhost:5054",
+                                                        "http://localhost:3000");
+                                });
+            });
             builder.Services.AddControllers(); 
             // builder.Services.AddCors(options=>{
             //     var frontendURL = configurations.GetValue<string>("fronend_url");
@@ -25,7 +33,8 @@ using Microsoft.OpenApi.Models;
 
             // });
             var app = builder.Build();
-            
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
