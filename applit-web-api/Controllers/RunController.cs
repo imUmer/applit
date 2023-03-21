@@ -7,19 +7,20 @@ using Docker.DotNet.Models;
 namespace applit_web_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class RunController : ControllerBase
     {
         private DockerClient client;
         
 
         [HttpPost]
-        public async Task<IActionResult> RunContainer(string image, string name)
+        public async Task<IActionResult> RunContainer([FromForm] string image, [FromForm] string name)
         {
+            System.Console.WriteLine(image+1);
             client = new DockerClientConfiguration(new Uri("npipe://./pipe/docker_engine")).CreateClient();
             var response = await client.Containers.CreateContainerAsync(new CreateContainerParameters
             {
-                Image = image,
+                Image = image, 
                 Name = name,
                 Tty = true
             });
