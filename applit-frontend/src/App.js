@@ -6,6 +6,7 @@ import Folder from "./components/folder/Folder";
 import CodeEditor from "./Test";
 import Cards from "./components/card/Cards";
 import './App.css';
+import {Routes ,Route} from 'react-router-dom';
 
 const folder = {
   name: "root",
@@ -61,7 +62,7 @@ const items = [
     title: "C++",
     imagename: "gcc",
     description:
-      "Pratice you codind in online C++ IDE. Click and Launch your envoirnment",
+      "Pratice your coding in online C++ IDE. Click and Launch your envoirnment",
     buttonText: "Launch C++",
   }, 
 ];
@@ -72,11 +73,13 @@ const images = [
   "https://via.placeholder.com/800x400?text=Image%203",
 ];
 const App = () => {
- 
   return (
     <div className="App">
       <Navbar />
-      <Cards items={items} />  
+      <Routes> 
+        <Route path={'/'} element={<Cards items={items} />} />
+        <Route path={'/editor'} element={<Editor />} />
+      </Routes>
     </div>
   );
 };

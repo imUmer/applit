@@ -1,8 +1,12 @@
 import React from "react";
 import "./Cards.css";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Cards = ({ items }) => {
+  
+  const history = useHistory();
   const lauchButton = async (name, event) => {
     const containerPrams = new FormData();
     containerPrams.append("image", name);
@@ -16,7 +20,9 @@ const Cards = ({ items }) => {
       })
       .then(function (response) {
         navigator("./Editor");
-        console.log(response);
+
+       <Link to={'/about'} />
+      console.log(response);
       })
       .catch(function (error) {
         console.log(error);
