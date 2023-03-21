@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 const Cards = ({ items }) => {
   
-  const history = useHistory();
+  // const history = useHistory();
   const lauchButton = async (name, event) => {
     const containerPrams = new FormData();
     containerPrams.append("image", name);
