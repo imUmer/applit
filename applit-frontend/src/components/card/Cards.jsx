@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import "./Cards.css";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
+import Loading from "../loading/Loading";
 
 const Cards = ({ items }) => {
   
-  // const history = useHistory();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  function lauch() {
+    navigate('/editor');
+ 
+  } 
+ 
+    async function fetchData() {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+      console.log(response.data);
+      setLoading(false);
+      navigate('/editor');
+    } 
+
+
   const lauchButton = async (name, event) => {
     const containerPrams = new FormData();
     containerPrams.append("image", name);
     containerPrams.append("name", name + "3");
     console.log(typeof containerPrams);
+    
+    setLoading(true);
     await axios
       .post("http://localhost:5054/api/Run", containerPrams, {
         headers: {
@@ -19,9 +37,9 @@ const Cards = ({ items }) => {
         },
       })
       .then(function (response) {
-        navigator("./Editor");
-
-       <Link to={'/about'} />
+        navigate('/editor');
+        setLoading(false);
+      //  <Route path="/editor" component={<Editor />}/>
       console.log(response);
       })
       .catch(function (error) {
@@ -36,10 +54,18 @@ const Cards = ({ items }) => {
           <div className="card-info">
             <h3>{item.title}</h3>
             <p>{item.description}</p>
+            <form onSubmit={() => fetchData()}>
+              <input type="submit" value="Gooo" />
+            </form>
+            {loading ? 
+              <Loading />
+             : (
+              <button onClick={fetchData}>Next Page</button>
+            )}
             <form onSubmit={() => lauchButton(item.imagename)}>
               <input type="submit" value={item.buttonText} />
             </form>
-            {/* <button onSubmit={()=>lauchButton(item.imagename)}>{item.buttonText}</button> */}
+            <button onClick={lauch}>Go</button>
           </div>
         </div>
       ))}
