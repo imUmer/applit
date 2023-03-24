@@ -1,7 +1,7 @@
 import React from "react";
 import "./Loading.css"; 
 
-const Loading = ({ items }) => {
+const Loading = () => {
  
   return (
     <div class="container">

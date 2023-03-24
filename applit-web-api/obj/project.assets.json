@@ -247,26 +247,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Arbaz.Ahmad\\.nuget\\packages\\": {}
+    "C:\\Users\\Wasif Ijaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\od\\intern\\applit\\applit-web-api\\applit-web-api.csproj",
+      "projectUniqueName": "E:\\umer\\My Projects\\applit\\applit-web-api\\applit-web-api.csproj",
       "projectName": "applit-web-api",
-      "projectPath": "D:\\od\\intern\\applit\\applit-web-api\\applit-web-api.csproj",
-      "packagesPath": "C:\\Users\\Arbaz.Ahmad\\.nuget\\packages\\",
-      "outputPath": "D:\\od\\intern\\applit\\applit-web-api\\obj\\",
+      "projectPath": "E:\\umer\\My Projects\\applit\\applit-web-api\\applit-web-api.csproj",
+      "packagesPath": "C:\\Users\\Wasif Ijaz\\.nuget\\packages\\",
+      "outputPath": "E:\\umer\\My Projects\\applit\\applit-web-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Arbaz.Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Wasif Ijaz\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -317,7 +315,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

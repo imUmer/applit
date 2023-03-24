@@ -95,3 +95,5 @@ D:\od\intern\applit\applit-web-api\obj\Debug\net7.0\applit-web-api.genruntimecon
 D:\od\intern\applit\applit-web-api\obj\Debug\net7.0\ref\applit-web-api.dll
 D:\od\intern\applit\applit-web-api\bin\Debug\net7.0\package-lock.json
 D:\od\intern\applit\applit-web-api\bin\Debug\net7.0\package.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\package-lock.json
+E:\umer\My Projects\applit\applit-web-api\bin\Debug\net7.0\package.json

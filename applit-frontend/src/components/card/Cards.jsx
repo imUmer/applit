@@ -57,11 +57,6 @@ const Cards = ({ items }) => {
             <form onSubmit={() => fetchData()}>
               <input type="submit" value="Gooo" />
             </form>
-            {loading ? 
-              <Loading />
-             : (
-              <button onClick={fetchData}>Next Page</button>
-            )}
             <form onSubmit={() => lauchButton(item.imagename)}>
               <input type="submit" value={item.buttonText} />
             </form>

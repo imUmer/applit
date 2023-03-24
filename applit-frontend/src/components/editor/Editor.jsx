@@ -1,13 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useCallback} from "react";
 import "./Editor.css";
 import axios from "axios";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import Loading from "../loading/Loading";
 
 
 const Editor = ({ folder }) => {
   const [code, setCode] = useState("print(1)");
   const [response, setResponse] = useState("");
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState(0)
+
+  const fetchData = useCallback(async()=> {
+    const data = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+     
+    
+        setData(data.data)
+        setLoading(false);
+  }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData]);
+
+
+  // useEffect(() => {
+  //   const fetchData = async()=> {
+  //     await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  //     .then(function (response)  {
+  //       console.log(response.data);
+  //       setData(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+      
+  //   }
+  //   fetchData();
+  //   console.log(data.title);
+  // }, []);
+
+  // useEffect ( () => {
+  //   async function fetchData() {
+  //     const resp = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+  //     console.log(resp.data);
+  //     setData(resp.data);
+  //     console.log(data.title);
+  //     setLoading(false);
+  //   } 
+  //   fetchData();
+  // });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -72,14 +116,19 @@ const Editor = ({ folder }) => {
 
   return (
     <div className="folder-tree">
+      
       <div class="editor-container">
         <div class="editor-header">AplLit Code Editor</div>
+      
         <div class="editor-body">
           <div class="editor-sidebar">
             <ul class="editor-sidebar-list">
               <li class="editor-sidebar-list-item active">app.js</li>
               <li class="editor-sidebar-list-item">styles.css</li>
               <li class="editor-sidebar-list-item">index.html</li>
+              {/* {
+              loading ? <p>Hello  <Loading /> </p> : <p>This is {data}</p>
+            }  */}
             </ul>
           </div>
           <div class="editor-content">
@@ -101,13 +150,15 @@ const Editor = ({ folder }) => {
               </div>
 
               <div class="console-body">
-              <SyntaxHighlighter language="python" style={darcula}>
+               {
+              loading ? <p>Hello  <Loading /> </p> : <p>This is {data.title}</p>
+            } 
+              {/* <SyntaxHighlighter language="python" style={darcula}>
                 {response}
-              </SyntaxHighlighter>
-{/* 
-                <div>
-                  <p> {response} </p>
-                </div> */}
+                    
+            
+              </SyntaxHighlighter> */}
+          
               </div>
               <div class="console-input">
                 <input type="text" placeholder="Type your command here" />
