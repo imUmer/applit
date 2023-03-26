@@ -2,6 +2,9 @@ using Docker.DotNet;
 using Docker.DotNet.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Docker.DotNet;
+using Docker.DotNet.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 
@@ -16,25 +19,26 @@ public class CodeController : ControllerBase
         // Create a Docker client using the default configuration
         _dockerClient = new DockerClientConfiguration().CreateClient();
     }
-
+    
     [HttpPost]
-    public IActionResult SaveCode([FromForm] string code)
+    public async Task<IActionResult> SaveCode([FromForm] string code)
     {
         try
         {
-            // Set the path to the file where the code will be saved applit-web-api\app\code.py
-            string filePath =  @".\app\code.py"; 
+            // Set the path to the file where the code will be saved
+            string filePath = @"D:\od\intern\applit\applit-web-api\app\code.py";
             // Write the code to the file 
             System.IO.File.WriteAllText(filePath, code);
-
-
+          
+          
             return Ok("Code saved successfully.");
         }
         catch (Exception ex)
         {
-            return BadRequest(ex.Message);
+             return BadRequest(ex.Message);
         }
-
+         
+        return Ok();
     }
 }
 

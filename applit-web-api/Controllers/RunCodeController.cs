@@ -25,7 +25,7 @@ public class RunCodeController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> RunPythonScript()
     {
-        string p = System.IO.File.ReadAllText(@".\app\code.py");
+        string p = System.IO.File.ReadAllText(@"D:\od\intern\applit\applit-web-api\app\code.py");
 
         var startParams = new ContainerStartParameters
         {

@@ -20,7 +20,8 @@ namespace applit_web_api.Controllers
             client = new DockerClientConfiguration(new Uri("npipe://./pipe/docker_engine")).CreateClient();
             var response = await client.Containers.CreateContainerAsync(new CreateContainerParameters
             {
-                Image = image,  
+                Image = image, 
+                Name = name,
                 Tty = true
             });
 
