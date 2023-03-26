@@ -26,32 +26,6 @@ const Editor = ({ folder }) => {
   }, [fetchData]);
 
 
-  // useEffect(() => {
-  //   const fetchData = async()=> {
-  //     await axios.get('https://jsonplaceholder.typicode.com/todos/1')
-  //     .then(function (response)  {
-  //       console.log(response.data);
-  //       setData(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-      
-  //   }
-  //   fetchData();
-  //   console.log(data.title);
-  // }, []);
-
-  // useEffect ( () => {
-  //   async function fetchData() {
-  //     const resp = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-  //     console.log(resp.data);
-  //     setData(resp.data);
-  //     console.log(data.title);
-  //     setLoading(false);
-  //   } 
-  //   fetchData();
-  // });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,7 +41,7 @@ const Editor = ({ folder }) => {
 
   const handleRun = async (event) => {
     event.preventDefault();
-    uploadFile();
+    await uploadFile();
     axios
       .post(`http://localhost:5054/api/RunCode`)
       .then(function (response) {
@@ -97,7 +71,7 @@ const Editor = ({ folder }) => {
       });
   };
   const handleInputChange = (event) => {
-    setCode(event.target.value);
+    setCode(event.target.value); 
   };
   const textarea = document.querySelector("textarea");
 
@@ -116,7 +90,7 @@ const Editor = ({ folder }) => {
 
   return (
     <div className="folder-tree">
-      
+      {loading ? <Loading text="please wait..."/> :
       <div class="editor-container">
         <div class="editor-header">AplLit Code Editor</div>
       
@@ -144,21 +118,13 @@ const Editor = ({ folder }) => {
             <div class="editor-console">
               <div class="console-header">
                 Console
-                <form onSubmit={handleSubmit}>
-                  <input type="submit" value="Send data" />
-                </form>
               </div>
 
               <div class="console-body">
-               {
+               {/* {
               loading ? <p>Hello  <Loading /> </p> : <p>This is {data.title}</p>
-            } 
-              {/* <SyntaxHighlighter language="python" style={darcula}>
-                {response}
-                    
-            
-              </SyntaxHighlighter> */}
-          
+            }  */}
+               <p> {response} </p>
               </div>
               <div class="console-input">
                 <input type="text" placeholder="Type your command here" />
@@ -166,7 +132,7 @@ const Editor = ({ folder }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };
