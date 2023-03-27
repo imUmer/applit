@@ -7,6 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.colors {
+  --input-text-color: #fff;
+  --input-bg-color: #283542;
+  --focus-input-bg-color: transparent;
+  --text-color: #949faa;
+  --active-color: #20a970;
+  --primary-color: #a1a400;
+  --primary-color-hover: #fbff00;
+  --primary-color-click: #fdff73;
+  /* --active-color: #1b9bee; */
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.2rem;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

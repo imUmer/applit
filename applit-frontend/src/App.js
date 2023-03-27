@@ -7,6 +7,7 @@ import CodeEditor from "./Test";
 import Cards from "./components/card/Cards";
 import './App.css';
 import {Routes ,Route} from 'react-router-dom';
+import Footer from "./components/footer/Footer";
 
 const folder = {
   name: "root",
@@ -80,6 +81,7 @@ const App = () => {
         <Route path={'/'} element={<Cards items={items} />} />
         <Route path={'/editor'} element={<Editor />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

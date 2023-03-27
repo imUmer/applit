@@ -3,16 +3,18 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin: 2rem 1rem;
+
 }
 
 .card {
   position: relative;
-  background-color: #fff;
+  background-color: #1e1e19;
+  color: #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .card:hover {
@@ -33,14 +35,15 @@
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
 }
 
 .card-info p {
   margin: 1rem 0;
   font-size: 1rem;
-  color: #555;
+  color: #fff;
 }
+
 .card-info button {
   border: none;
   outline: none;
@@ -55,17 +58,23 @@
 .card-info button:hover {
   background-color: #008b7a;
 }
-.card-info input {
+
+.card-info button {
   border: none;
   outline: none;
-  background-color: #009688;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: #000;
   padding: 0.8rem 1.2rem;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
-.card-info input:hover {
-  background-color: #008b7a;
+.card-info button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+
+.card-info button:active {
+  transform: scale(0.95);
 }

@@ -1,0 +1,62 @@
+.footer-container{
+  width: 100%; 
+  bottom: 0;  
+}
+
+
+.footer-navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1px;
+  background-color: #030B0f;
+  color: #ffffff;
+}
+.footer-social{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  float:right;
+  margin-right: 30px;
+}
+
+.footer-social a{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  /* opacity: 0.7; */
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook:hover {
+  background: #6391c8;
+  color: rgb(255, 255, 255);
+}
+
+/* instagram */
+.fa-instagram:hover  {
+  background: #f4a453;
+  color: white;
+}
+
+.fa-youtube:hover  {
+  background: #a91717;
+  color: white;
+}
